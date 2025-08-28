@@ -1,0 +1,114 @@
+{
+  "_version": "1.73.1",
+  "sap.app": {
+    "id": "practiceodata",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.18.5",
+      "toolsId": "9ce180e2-7c8f-4528-87eb-744f78cbfa73"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/v2/northwind/northwind.svc/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "practiceodata.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "practiceodata.view",
+        "async": true,
+        "viewPath": "practiceodata.view"
+      },
+      "routes": [
+        {
+          "name": "RouteInitialView",
+          "pattern": ":?query:",
+          "target": [
+            "TargetInitialView"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetInitialView": {
+          "id": "InitialView",
+          "name": "InitialView"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "practiceodata.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

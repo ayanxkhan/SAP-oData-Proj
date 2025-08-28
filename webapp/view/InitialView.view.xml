@@ -1,0 +1,107 @@
+<mvc:View controllerName="practiceodata.controller.InitialView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+
+    <Table 
+    id="customerTable" 
+    items="{
+    path: '/Customers'
+    }"
+    inset="false"
+    headerText="Customer Lists">
+
+    <columns>
+
+    <Column>
+    <Text text="Customer ID" />
+    </Column>
+
+    <Column>
+    <Text text="Company Name" />
+    </Column>
+
+    <Column>
+    <Text text="Contact Name" />
+    </Column>
+
+    <Column>
+    <Text text="Country" />
+    </Column>
+    
+    </columns>
+
+    <items>
+
+    <ColumnListItem>
+    <cells>
+    <Text text="{CustomerID}" />
+    <Text text="{CompanyName}" />
+    <Text text="{ContactName}" />
+    <Text text="{Country}" />
+    
+    </cells>
+    </ColumnListItem>
+    
+    
+    </items>
+
+
+
+
+
+    </Table>
+
+
+<!-- Table 2 -->
+    <Table 
+    id="EmployeeTable" 
+    items="{
+    path: '/Employees'
+    }"
+    inset="false"
+    headerText="Employee Details">
+
+    <columns>
+
+    <Column>
+    <Text text="First Name" />
+    </Column>
+
+    <Column>
+    <Text text="Last Name" />
+    </Column>
+
+    <Column>
+    <Text text="Address" />
+    </Column>
+
+    <Column>
+    <Text text="Notes" />
+    </Column>
+    
+    </columns>
+
+    <items>
+
+    <ColumnListItem>
+    <cells>
+    <Text text="{FirstName}" />
+    <Text text="{LastName}" />
+    <Text text="{Address}" />
+    <Text text="{Notes}" />
+    
+    </cells>
+    </ColumnListItem>
+    
+    
+    </items>
+
+
+
+
+
+    </Table>
+    
+    </Page>
+</mvc:View>
